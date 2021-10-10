@@ -12,10 +12,17 @@
 
 <style>
     .wrapper {
-        height: 300px;
+        height: fit-content;
+        min-height: 300px;
         width: 800px;
         border-radius: 20px;
         background-color: rgb(240, 240, 240);
+        box-shadow: 0 1px 2px rgba(0,0,0,0.07), 
+            0 2px 4px rgba(0,0,0,0.07), 
+            0 4px 8px rgba(0,0,0,0.07), 
+            0 8px 16px rgba(0,0,0,0.07),
+            0 16px 32px rgba(0,0,0,0.07), 
+            0 32px 64px rgba(0,0,0,0.07);
     }
 
     .image {
@@ -27,9 +34,20 @@
 <body class="d-flex align-items-center justify-content-center h-100">
     <div class="wrapper row">
         <div class="image col-5" style="background:url({{imgPath}}) no-repeat center; background-size: cover;"></div>
-        <div class="right-section col-7 p-3">
-            <h3>Predictions</h3>
-            <form action="upload" method="post" enctype="multipart/form-data">
+        <div class="right-section col-7 p-3 d-flex flex-column justify-content-between">
+            <div class="results">
+                {% if preds %}
+                    <h3>{{preds[0][0]}}</h3>
+                    <p><strong>Confidence: </strong> {{preds[0][1]}}%</p>
+                    <hr>
+                    {% for (l,p) in preds[1:] %}
+                        <p class="mb-1"><strong>{{l}}: </strong> {{p}}%</p>
+                    {% endfor %}
+                {% else %}
+                    <h3>Predictions</h3>
+                {% endif %}
+            </div>
+            <form action="upload" method="post" enctype="multipart/form-data" class="mt-2">
                 <div class="input-group">
                     <input type="file" class="form-control" name="file" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
                     <button class="btn btn-success" type="submit">Submit</button>

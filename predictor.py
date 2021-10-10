@@ -2,7 +2,7 @@ import torch
 import torchvision.transforms as transforms
 import PIL.Image as Image
 
-def predictImage(imagePath, best_only=True):
+def predictImage(imgPath, best_only=True):
     '''
     Requires:
     torch
@@ -14,7 +14,7 @@ def predictImage(imagePath, best_only=True):
     torch.device("cuda")
     model = torch.load("./predictor/resnext101_32x8d.pt")
     
-    image = Image.open(imagePath)
+    image = Image.open(imgPath)
 
     preprocess = transforms.Compose([
     transforms.Resize(256),
@@ -40,7 +40,7 @@ def predictImage(imagePath, best_only=True):
     percentage = torch.nn.functional.softmax(out, dim=1)[0] * 100
 
     if best_only:
-        return labels[index[0]], percentage[index[0]].item()
+        return (labels[index[0]], percentage[index[0]].item())
     else:
         _, indices = torch.sort(out, descending=True)
         return [(labels[i], percentage[i].item()) for i in indices[0][:5]]
