@@ -6,3 +6,6 @@ git remote add origin https://github.com/AqilAkmal/ImagePredictor.git
 git add predictor/*
 git commit -m "first commit"
 git push --set-upstream origin master
+
+### Todo
+* Create an api to return a json for the predictions
