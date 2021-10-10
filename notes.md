@@ -1,9 +1,4 @@
-## What to continue?
-* Add a starting page to upload
-* Figure out how to integrate model and front end
-* Get the prediction and display the confidence
-* Beautify
-
+### Uploading Large Files
 git init
 git lfs track "*.pt"
 git add .gitattributes
