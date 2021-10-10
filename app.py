@@ -20,6 +20,7 @@ def upload():
     f.save(f'{getcwd()}/{imgPath}')
 
     # Predict
-    preds = prepredictImage(imgPath=imgPath, best_only=False)
+    preds = predictImage(imgPath=imgPath, best_only=False)
+    preds = [(l.capitalize(), str(round(p, 2))) for (l,p) in preds]
 
-    return render_template('index.html', imgPath=imgPath)
+    return render_template('index.html', imgPath=imgPath, preds=preds)
