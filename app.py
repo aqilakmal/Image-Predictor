@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import datetime as dt
 from flask import Flask, render_template, request, redirect, url_for, flash, abort, session, jsonify
 import json
 
@@ -18,8 +18,12 @@ def home():
 @app.route('/upload', methods=['POST'])
 def upload():
     f = request.files['file']
-    full_name = f"upload__{secure_filename(f.filename)}"
-    imgPath = f"static/user-uploads/{full_name}"
+    ext = f.filename.split('.')[-1]
+
+    if ext not in ['jpg', 'jpeg', 'png']:
+        return redirect(url_for('home'))
+
+    imgPath = f"static/user-uploads/{upload_time}.{ext}"
     f.save(f'{getcwd()}/{imgPath}')
 
     # Predict
@@ -32,8 +36,12 @@ def upload():
 @app.route('/api', methods=['POST'])
 def api():
     f = request.files['file']
-    full_name = f"upload__{secure_filename(f.filename)}"
-    imgPath = f"static/user-uploads/{full_name}"
+    ext = f.filename.split('.')[-1]
+
+    if ext not in ['jpg', 'jpeg', 'png']:
+        return "The file you upload is not an Image!", 400
+
+    imgPath = f"static/user-uploads/{upload_time}.{ext}"
     f.save(f'{getcwd()}/{imgPath}')
 
     # Predict
