@@ -17,6 +17,8 @@ def home():
 # Uploading from front-end
 @app.route('/upload', methods=['POST'])
 def upload():
+
+    # The file name is the time of upload
     upload_time = dt.now().strftime('%Y%m%d%H%M%S%f')
     f = request.files['file']
     ext = f.filename.split('.')[-1]
@@ -36,6 +38,8 @@ def upload():
 # API functionality
 @app.route('/api', methods=['POST'])
 def api():
+
+    # The file name is the time of upload
     upload_time = dt.now().strftime('%Y%m%d%H%M%S%f')
     f = request.files['file']
     ext = f.filename.split('.')[-1]
