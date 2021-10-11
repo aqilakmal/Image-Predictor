@@ -7,63 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./static/style.css">
     <link rel="icon" href="static\logo.png">
     <title>Image Predictor</title>
 </head>
-
-<style>
-    body {
-        background-color: #121212;
-        color: rgb(240, 240, 240);
-    }
-    
-    .wrapper {
-        height: fit-content;
-        min-height: 300px;
-        width: 800px;
-        border-radius: 20px;
-        background-color: #1D1D1D;
-        box-shadow: 
-            0 8px 16px rgba(0,0,0,0.1),
-            0 16px 32px rgba(0,0,0,0.1), 
-            0 32px 64px rgba(0,0,0,0.1);
-    }
-
-    .image {
-        background-size: cover;
-        border-radius: 20px 0 0 20px;
-    }
-
-    /* .form-control, .form-control:focus {
-        background-color: #292929;
-        border: 0;
-        color: rgb(240, 240, 240);
-    } */
-
-    .upload-wrapper {
-        background-color: #292929;
-        height: fit-content;
-        border-radius: 0.3rem;
-    }
-
-    label {
-        background-color: #3d3d3d;
-        color: white;
-        padding: 0.5rem;
-        font-family: sans-serif;
-        border-radius: 0.3rem 0 0 0.3rem;
-        cursor: pointer;
-    }
-
-    .btn {
-        border-radius: 0 0.3rem 0.3rem 0;
-    }
-
-    #file-chosen {
-        padding: 6px 0;
-        margin-left: 10px;
-    }
-</style>
 
 <body class="d-flex align-items-center justify-content-center h-100">
     <div class="wrapper row">
@@ -83,12 +30,19 @@
                     <p>Choose an image file to predict their class!</p>
                 {% endif %}
             </div>
+            
+            <a href="{{url_for('home')}}">
+                <button class="btn home-btn">
+                    <img src="static\home-icon.png" alt="home icon"/>
+                </button>
+            </a>
+
             <form action="upload" method="post" enctype="multipart/form-data" class="mt-3">
                 <div class="upload-wrapper d-flex align-center">
                     <input type="file" name="file" id="actual-btn" hidden/>
                     <label for="actual-btn">Choose File</label>
                     <span id="file-chosen">No file chosen</span>
-                    <button class="btn btn-success ms-auto" type="submit">Submit</button>
+                    <button class="btn btn-success ms-auto submit-btn" type="submit">Submit</button>
                 </div>
             </form>
         </div>

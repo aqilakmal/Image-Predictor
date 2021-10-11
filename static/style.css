@@ -1,0 +1,83 @@
+body {
+    background-color: #121212;
+    color: rgb(240, 240, 240);
+}
+
+.wrapper {
+    height: fit-content;
+    min-height: 300px;
+    width: 800px;
+    border-radius: 20px;
+    background-color: #1D1D1D;
+    box-shadow: 
+        0 8px 16px rgba(0,0,0,0.1),
+        0 16px 32px rgba(0,0,0,0.1), 
+        0 32px 64px rgba(0,0,0,0.1);
+}
+
+.image {
+    background-size: cover;
+    border-radius: 20px 0 0 20px;
+}
+
+.upload-wrapper {
+    background-color: #292929;
+    height: fit-content;
+    border-radius: 0.3rem;
+}
+
+label {
+    background-color: #3d3d3d;
+    color: white;
+    padding: 0.5rem;
+    font-family: sans-serif;
+    border-radius: 0.3rem 0 0 0.3rem;
+    cursor: pointer;
+}
+
+.submit-btn {
+    border-radius: 0 0.3rem 0.3rem 0;
+}
+
+.right-section {
+    position: relative;
+}
+
+.home-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height:45px;
+    width: 45px;
+    padding: 0;
+    margin-top: 10px;
+    margin-right: 20px;
+    background-color: #3d3d3d;
+}
+
+.home-btn:hover {
+    background-color: #292929;
+}
+
+.home-btn > img {
+    height: 30px;
+    width: 30px;
+    padding: 0;
+    margin-left: 2px;
+}
+
+#file-chosen {
+    padding: 6px 0;
+    margin-left: 10px;
+}
+
+/* Not Found */
+.back-home {
+    background-color: #292929;
+    color: #fff;
+}
+
+.back-home:hover {
+    background-color: #3d3d3d;
+    color: #fff;
+}
