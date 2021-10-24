@@ -58,7 +58,6 @@ pyzmq @ file:///D:/bld/pyzmq_1631793441125/work
 scipy==1.4.1
 sip==4.19.13
 six @ file:///tmp/build/80754af9/six_1623709665295/work
-tensorflow==2.3.4
 tensorflow-estimator==2.3.0
 torch==1.9.1
 torchaudio==0.9.1
