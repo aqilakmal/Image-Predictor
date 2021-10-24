@@ -1,5 +1,5 @@
 Flask
-gunicorn
+gunicorn==20.1.0
 Jinja2
 numpy
 pandas
