@@ -26,13 +26,17 @@ def upload():
     if ext not in ['jpg', 'jpeg', 'png']:
         return redirect(url_for('home'))
 
+    print('Saving image')
     imgPath = f"static/user-uploads/{upload_time}.{ext}"
     f.save(f'{getcwd()}/{imgPath}')
+    print(f'{getcwd()}/{imgPath}')
 
+    print('Predicting...')
     # Predict
     preds = predictImage(imgPath=imgPath, best_only=False)
     preds = [(l.capitalize(), str(round(p, 2))) for (l,p) in preds]
 
+    print('rendering')
     return render_template('index.html', imgPath=imgPath, preds=preds)
 
 # API functionality
