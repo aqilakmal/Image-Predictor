@@ -1,6 +1,6 @@
 # ImagePredictor
 
-Using **Flask**, I deploy a **resnext101_32x8d** image classification model from the **torchvision** library to predict uploaded images.
+Using **Flask**, I deploy a resnet image classification model from the **torchvision** library to predict uploaded images.
 
 **Dog**
 <p><img src="examples\ss\dog.jpg"></p>
