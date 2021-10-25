@@ -36,7 +36,7 @@ def upload():
     preds = predictImage(imgPath=imgPath, best_only=False)
     preds = [(l.capitalize(), str(round(p, 2))) for (l,p) in preds]
 
-    print('rendering')
+    print('Rendering')
     return render_template('index.html', imgPath=imgPath, preds=preds)
 
 # API functionality
