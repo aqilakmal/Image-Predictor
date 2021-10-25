@@ -12,7 +12,7 @@ def predictImage(imgPath, best_only=True):
     '''
 
     torch.device("cuda")
-    model = torch.load("./predictor/resnext101_32x8d.pt")
+    model = torch.load("./predictor/resnet18")
     
     image = Image.open(imgPath)
 
