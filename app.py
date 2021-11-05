@@ -14,7 +14,7 @@ app = Flask(__name__)
 # Home route
 @app.route('/')
 def home():
-    return render_template('index.html', imgPath='./static/default.jpg')
+    return render_template('index.html', imgPath=url_for('static', filename='default.jpg'))
 
 # Uploading from front-end
 @app.route('/upload', methods=['GET', 'POST'])
@@ -25,7 +25,7 @@ def upload():
         return redirect(url_for('home'))
 
     # Deletes any file in the user-uploads
-    folder = './static/user-uploads'
+    folder = 'static/user-uploads'
 
     # Remove all files in user-uploads if there are any
     if len(os.listdir(folder)) != 0:
@@ -48,7 +48,7 @@ def upload():
     if ext not in ['jpg', 'jpeg', 'png']:
         return render_template(
             'index.html',
-            imgPath='./static/default.jpg',
+            imgPath=url_for('static', filename='default.jpg'),
             error="That's not an image!"
         )
 
