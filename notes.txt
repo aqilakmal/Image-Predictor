@@ -1,0 +1,1 @@
+For some reason if you push to heroku an empty file the file will not exist in remote reposity which causes an error when uploading the image.
