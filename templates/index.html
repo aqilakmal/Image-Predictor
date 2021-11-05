@@ -20,7 +20,7 @@
         <div class="right-section col-12 col-md-7 p-3 d-flex flex-column justify-content-between">
             <div class="results">
                 {% if preds %}
-                    <h3 style="color:#20a768;">{{preds[0][0]}}</h3>
+                    <h3 class="prediction" style="color:#20a768;">{{preds[0][0]}}</h3>
                     <p><strong>Confidence: </strong> {{preds[0][1]}}%</p>
                     <hr>
                     {% for (l,p) in preds[1:] %}
