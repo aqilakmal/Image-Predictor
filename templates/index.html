@@ -13,6 +13,16 @@
 </head>
 
 <body class="d-flex align-items-center justify-content-center h-100">
+
+    {% if error %}
+        <div id="errorWrapper" class="error alert alert-danger">
+            {{error}}
+            <button id="errorBtn" class="btn" onclick="remove()">
+                <img src="static\close.png" alt="Close Warning">
+            </button>
+        </div>
+    {% endif %}
+
     <div class="wrapper row">
         
         <div class="image col-12 col-md-5" style="background:url({{imgPath}}) no-repeat center; background-size: cover;"></div>
@@ -58,6 +68,11 @@
     actualBtn.addEventListener('change', function() {
         fileChosen.textContent = this.files[0].name
     })
+
+    const remove = () => {
+        errorWrapper = document.getElementById('errorWrapper');
+        errorWrapper.style.display = 'none';
+    }
 </script>
 
 </html>

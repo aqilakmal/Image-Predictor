@@ -42,8 +42,13 @@ def upload():
     f = request.files['file']
     ext = f.filename.split('.')[-1]
 
+    # Handle non-standard images
     if ext not in ['jpg', 'jpeg', 'png']:
-        return redirect(url_for('home'))
+        return render_template(
+            'index.html',
+            imgPath='./static/default.jpg',
+            error="That's not an image!"
+        )
 
     print('Saving image')
     imgPath = f"static/user-uploads/{upload_time}.{ext}"

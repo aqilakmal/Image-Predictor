@@ -14,7 +14,7 @@ def predictImage(imgPath, best_only=True):
     torch.device("cuda")
     model = torch.load("./predictor/wide_resnet50_2.pt")
     
-    image = Image.open(imgPath)
+    image = Image.open(imgPath).convert('RGB')
 
     preprocess = transforms.Compose([
     transforms.Resize(256),
