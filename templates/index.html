@@ -14,11 +14,13 @@
 
 <body class="d-flex align-items-center justify-content-center h-100">
     <div class="wrapper row">
-        <div class="image col-5" style="background:url({{imgPath}}) no-repeat center; background-size: cover;"></div>
-        <div class="right-section col-7 p-3 d-flex flex-column justify-content-between">
+        
+        <div class="image col-12 col-md-5" style="background:url({{imgPath}}) no-repeat center; background-size: cover;"></div>
+        
+        <div class="right-section col-12 col-md-7 p-3 d-flex flex-column justify-content-between">
             <div class="results">
                 {% if preds %}
-                    <h3>{{preds[0][0]}}</h3>
+                    <h3 style="color:#20a768;">{{preds[0][0]}}</h3>
                     <p><strong>Confidence: </strong> {{preds[0][1]}}%</p>
                     <hr>
                     {% for (l,p) in preds[1:] %}
@@ -27,7 +29,7 @@
                 {% else %}
                     <h3>Predictions</h3>
                     <hr>
-                    <p>Choose an image file to predict their class!</p>
+                    <p>AI will predict your Image!</p>
                 {% endif %}
             </div>
             
@@ -38,14 +40,15 @@
             </a>
 
             <form action="upload" method="post" enctype="multipart/form-data" class="mt-3">
-                <div class="upload-wrapper d-flex align-center">
+                <div class="upload-wrapper d-flex flex-md-row flex-column align-center">
                     <input type="file" name="file" id="actual-btn" hidden/>
                     <label for="actual-btn">Choose File</label>
                     <span id="file-chosen">No file chosen</span>
-                    <button class="btn btn-success ms-auto submit-btn" type="submit">Submit</button>
+                    <button class="btn btn-success ms-md-auto submit-btn" type="submit">Submit</button>
                 </div>
             </form>
         </div>
+
     </div>
 </body>
 

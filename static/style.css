@@ -1,6 +1,7 @@
 body {
     background-color: #121212;
     color: rgb(240, 240, 240);
+    padding: 50px 30px;
 }
 
 .wrapper {
@@ -18,6 +19,30 @@ body {
 .image {
     background-size: cover;
     border-radius: 20px 0 0 20px;
+}
+
+@media only screen and (max-width: 768px) {
+    .image {
+        border-radius: 20px 20px 0 0;
+        min-height: 200px;
+        background: cover;
+    }
+
+    .right-section {
+        min-height: 300px;
+    }
+
+    .upload-wrapper > label {
+        border-radius: 0.3rem;
+        margin: 7px;
+        margin-bottom: 0;
+    }
+
+    .upload-wrapper > button {
+        border-radius: 0.3rem;
+        margin: 7px;
+        margin-top: 0;
+    }
 }
 
 .upload-wrapper {
