@@ -2,6 +2,8 @@ from datetime import datetime as dt
 from flask import Flask, render_template, request, redirect, url_for, flash, abort, session, jsonify
 import json
 
+import os
+import shutil
 from os import getcwd
 from werkzeug.utils import secure_filename
 
@@ -15,8 +17,25 @@ def home():
     return render_template('index.html', imgPath='./static/default.jpg')
 
 # Uploading from front-end
-@app.route('/upload', methods=['POST'])
+@app.route('/upload', methods=['GET', 'POST'])
 def upload():
+
+    # Handle get request
+    if request.method == 'GET':
+        return redirect(url_for('home'))
+
+    # Deletes any file in the user-uploads
+    folder = './static/user-uploads'
+
+    for filename in os.listdir(folder):
+        file_path = os.path.join(folder, filename)
+        try:
+            if os.path.isfile(file_path) or os.path.islink(file_path):
+                os.unlink(file_path)
+            elif os.path.isdir(file_path):
+                shutil.rmtree(file_path)
+        except Exception as e:
+            print('Failed to delete %s. Reason: %s' % (file_path, e))
 
     # The file name is the time of upload
     upload_time = dt.now().strftime('%Y%m%d%H%M%S%f')
@@ -40,8 +59,12 @@ def upload():
     return render_template('index.html', imgPath=imgPath, preds=preds)
 
 # API functionality
-@app.route('/api', methods=['POST'])
+@app.route('/api', methods=['GET', 'POST'])
 def api():
+
+    # Handle get request
+    if request.method == 'GET':
+        return redirect(url_for('home'))
 
     # The file name is the time of upload
     upload_time = dt.now().strftime('%Y%m%d%H%M%S%f')
