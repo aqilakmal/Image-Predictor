@@ -25,7 +25,7 @@ def upload():
         return redirect(url_for('home'))
 
     # Deletes any file in the user-uploads
-    folder = '/static/user-uploads'
+    folder = './static/user-uploads'
 
     # Remove all files in user-uploads if there are any
     if len(os.listdir(folder)) != 0:
