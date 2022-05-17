@@ -1,18 +1,19 @@
 import torch
+import torchvision.models as models
 import torchvision.transforms as transforms
 import PIL.Image as Image
 
 def predictImage(imgPath, best_only=True):
     '''
     Requires:
-    torch
-    torchvision.models as models
-    torchvision.transforms as transforms
-    PIL.Image as Image
+    - torch
+    - torchvision.models as models
+    - torchvision.transforms as transforms
+    - PIL.Image as Image
     '''
 
     torch.device("cuda")
-    model = torch.load("./predictor/wide_resnet50_2.pt")
+    model = torch.load("./predictor/wide_resnet50_2.pth")
     
     image = Image.open(imgPath).convert('RGB')
 

@@ -1,1 +1,14 @@
-For some reason if you push to heroku an empty file the file will not exist in remote reposity which causes an error when uploading the image.
+Note:
+    * If you push to heroku an empty file, the file will not exist in remote repository.
+    * This causes an error when uploading the image.
+
+Running Locally:
+    * Create the environment
+        * `pip install virtualenv` (install virtualenv)
+        * `virtualenv env` (create an environment named "env")
+    * `source env/Scripts/activate` (activate the environment)
+    * `pip install -r requirements.txt` (install all required packages)
+    * Run './run.sh' (run a list of commands)
+
+Deploy to Heroku:
+    * `git push heroku master`
