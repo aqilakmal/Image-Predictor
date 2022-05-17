@@ -1,6 +1,9 @@
 Note:
     * If you push to heroku an empty file, the file will not exist in remote repository.
     * This causes an error when uploading the image.
+    * GIT-LFS:
+        * Ensure to add the file in .gitattributes
+        * Commit and push the large file individually
 
 Running Locally:
     * Create the environment
